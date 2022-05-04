@@ -12,3 +12,7 @@ This bot was created to make it easier for us to collect Feedback and pass it di
 - /report text - you write anything that you want and it's goingt to us (please write about errors and bugs, I'm serious)
 - /get_id - show you your own Telegram id
 ```
+Also you can find this commands in [this file](./help.xt)
+
+# Contributors
+**SeryiBaran** - main developer 
