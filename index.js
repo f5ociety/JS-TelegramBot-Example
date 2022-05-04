@@ -40,9 +40,9 @@ bot
       {}
     );
   })
-  .command("help", (ctx) => {
-    let data = fs.readFileSync("help.txt", "utf8");
-    ctx.replyWithHTML(data);
+  .command("help", async (ctx) => {
+    let data = await fs.readFileSync("help.txt", "utf8");
+    await ctx.replyWithHTML(data);
   })
   .hears(/\/echo (.+)/, async (ctx) => {
     await ctx.reply(ctx.match[1]);
@@ -74,13 +74,13 @@ bot
       await ctx.replyWithHTML(`Твой ID: <code>${ctx.from.id}</code>`);
     }
   })
-  .command("json", (ctx) => {
-    ctx.replyWithHTML(`<code>${JSON.stringify(ctx.message)}</code>`);
+  .command("json", async (ctx) => {
+    await ctx.replyWithHTML(`<code>${JSON.stringify(ctx.message)}</code>`);
   });
 
 bot
-  .command("ivan", (ctx) => {
-    ctx.reply(qivan, viktory_keyboard("ivanmouse", "ivannotmouse"));
+  .command("ivan", async (ctx) => {
+    await ctx.reply(qivan, viktory_keyboard("ivanmouse", "ivannotmouse"));
   })
   .action("ivanmouse", (ctx) => {
     viktory_send(ctx, qivan, true, aivan);
@@ -99,5 +99,25 @@ bot
   .action("sergejnotmouse", (ctx) => {
     viktory_send(ctx, qserg, false, !aserg);
   });
+
+bot.command("del100", async (ctx) => {
+  try {
+    let k = 0;
+    for (let i = 0; i <= 100; i++) {
+      k = ctx.message.message_id - i;
+      await ctx.deleteMessage(k);
+    }
+  } catch {
+  }
+}).command("del10", async (ctx) => {
+  try {
+    let k = 0;
+    for (let i = 0; i <= 10; i++) {
+      k = ctx.message.message_id - i;
+      await ctx.deleteMessage(k);
+    }
+  } catch {
+  }
+});
 
 bot.launch();
