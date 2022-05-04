@@ -14,5 +14,3 @@ This bot was created to make it easier for us to collect Feedback and pass it di
 ```
 Also you can find this commands in [this file](./help.xt)
 
-# Contributors
-**SeryiBaran** - main developer 
