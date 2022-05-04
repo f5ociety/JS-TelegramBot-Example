@@ -100,24 +100,4 @@ bot
     viktory_send(ctx, qserg, false, !aserg);
   });
 
-bot.command("del100", async (ctx) => {
-  try {
-    let k = 0;
-    for (let i = 0; i <= 100; i++) {
-      k = ctx.message.message_id - i;
-      await ctx.deleteMessage(k);
-    }
-  } catch {
-  }
-}).command("del10", async (ctx) => {
-  try {
-    let k = 0;
-    for (let i = 0; i <= 10; i++) {
-      k = ctx.message.message_id - i;
-      await ctx.deleteMessage(k);
-    }
-  } catch {
-  }
-});
-
 bot.launch();
