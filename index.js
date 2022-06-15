@@ -1,9 +1,11 @@
 require("dotenv").config();
+const { Telegraf, Markup } = require("telegraf");
+const axios = require("axios");
+const fs = require("fs");
+
 const API_KEY = process.env.API_KEY;
 const OUR_GROUP_ID = process.env.OUR_GROUP_ID;
 const OUR_GROUP_URL = process.env.OUR_GROUP_URL;
-const { Telegraf, Markup } = require("telegraf");
-const fs = require("fs");
 const bot = new Telegraf(API_KEY);
 
 const qivan = "Иван мышь?";
@@ -49,6 +51,16 @@ bot
   })
   .command("ping", async (ctx) => {
     await ctx.reply("Понг!");
+  })
+  .command("cat", async (ctx) => {
+    await axios
+      .get("https://api.thecatapi.com/v1/images/search")
+      .then((response) => {
+        ctx.replyWithPhoto({ url: response.data[0].url });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   })
   .hears(/\/report (.+)/, async (ctx) => {
     await bot.telegram.sendMessage(
