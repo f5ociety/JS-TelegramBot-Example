@@ -8,3 +8,5 @@
 <code>/ivan</code> - Викторина про разработчика Ивана
 <code>/sergej</code> - Викторина про разработчика Сергея
 <code>/сat</code> - Прислать рандомного котика
+
+Подробности в <a href="https://github.com/f5ociety/JS-TelegramBot-Example">репозитории на GitHub</a>.
